@@ -29,6 +29,8 @@ function onClickGal(e) {
   const url = e.target.dataset.source;
   const description = e.target.alt;
 
+  if (!(url && description)) return;
+
   instance = basicLightbox.create(genBigImg({ url, description }), {
     onClose: () => {
       galleryList.removeEventListener("keydown", onKDownEsc);
